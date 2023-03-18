@@ -1,0 +1,63 @@
+마컨구조 2주차 4차시
+
+OTPROM : One Time Programmable / 1번만
+
+EPROM : Erasable Programmable
+	자외선
+	시간 오래걸림
+	햇빛에 취약 / 야외사용 불가능
+
+EEPROM : Electrically Erasable Programmable
+	한바이트씩 밖에 못지움
+	통신 ID, data 등 저장
+
+Flash Memory
+	block 단위로 지울수있음
+	EEPROM대비 R/W 빠름
+
+========================
+
+Ramdom Access Memory
+
+테이프
+CD-ROM
+
+SRAM - Static
+	반도체로 만들어짐
+	전원 꺼질떄까지 데이터 유지
+DRAM - Dynamic
+	캐패시터로 만들어짐
+	고밀도 집약 가능
+	휘발..
+	사이즈 대비 공간효율 높음
+	SRAM대비 쌈
+	속도 SRAM 대비 느림..좀 많이
+	Refresh Circuit 필요
+
+AVR은 SRAM을 사용함
+
+====================
+
+JTAG 
+	VS Debuging모드처럼 멈출수 있는 표준
+
+====================
+
+IO - Peripheral
+
+Timer / Counter
+
+Separate Oscillator : 발전기 - 클럭관여
+
+Real Time Counter 어쩌구
+
+PWM - Pulse Width Modulation
+
+==================
+
+8 single-ended Channels : 8개 센서
+differential Channels는 무시해도 됨
+
+Two-wire Serial Interface : I^2C
+
+USARTs : UART

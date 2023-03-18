@@ -1,0 +1,36 @@
+마컨구조 1주차 1차시
+
+이번 학기 과제 없음
+
+시험으로만 성적처리
+
+Interrupt -> 중간고사가 다가온ㄷ....
+
+Micro Processor Unit
+-intel amd...
+Micro Controller Unit
+-ar avr msp...
+
+Small Computing system
+-Microcontroller : cpu memory io 통합
+
+컴퓨터 시스템 구성
+-HW
+	-정보들이 이동이 가능케 해주는 통로를 제공,
+	 그러한 정보들의 처리를 가능케 하는 물리적 실체
+
+-SW
+ -System Software
+ -Application 응용 프로그램
+
+컴퓨터는 시키는 일만 명령들을 순서대로 처리할 뿐
+
+SoftWare
+정보들이 이동하는 방향과 어떻게 정보를 처리할지를 지정,
+동작이 일어나는 시간을 지정하는 명령의 집합
+
+어떤 응용프로그램을 쓰느냐에 따라서 컴퓨터의 용도가 달라짐
+
+컴퓨터의 필수요소
+-CPU, Memory
+

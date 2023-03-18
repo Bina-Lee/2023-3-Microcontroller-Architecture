@@ -1,0 +1,99 @@
+마컨구조 2주차 3차시
+
+SFR : Special Function Register
+	CPU 내부의 특수기능 레지스터
+	로 소프트웨어로 하드웨어를 제어함
+
+cache메모리는 자주쓰는 데이터만 있음
+(local data)
+
+register : cache보다 cpu에 가까움
+-General Perpose Registal : 범용 레지스터 : 대충 이거저거
+-Special Function Registal : 
+
+모든 CPU는 SFR을 가짐
+
+Constrol 레지스터
+	하드웨어 루틴 데어
+	적절한 값이 이미 정의되어있음, 이에따라 CPU 행동
+Status 레지스터
+	해당 하드웨어, 루틴의 상태를 나타내는 레지스터
+	일반적으로 읽기전용
+	read로 관련부분의 상태를 알수있음
+Data 레지스터
+	관련 부분에 데이터를 전달, read하는 register
+
+
+CPU가 지원하는 SFR의 일반적인 종류
+MCU	Constorl, Status
+GPIO	Control, Data
+interrupt	Constrol, Status
+Timer	Control, Status, Data
+Communication	Constrol, Status, Data	Register
+
+CPU가 지원하는 개별적인 기능들은 모두 해당 레지스터에 의해 제어
+
+=====================================
+
+High performance, Low power AVR 8bit Microcontroller
+
+Advanced RISC : Reduced Instruction Set Computer(CPU)
+		/CISK : Complexed ~~
+
+명령어 133개, light한 편
+Most Single Clock Cycle Execution <= RISC type의 특징
+
+Peripheral Control Register : SFR
+
+======
+
+Memory는 가로*세로로 생각할 것
+세로 : Address(Adress Space)
+가로 : Data Size/width
+
+32ea * 8bit size
+
+======
+
+Fully Static Operation
+
+Up to 16MIPS : Million Instruction Per Second
+	초당 몇백만 인스트럭트 / 연산속도
+Throughput : 수율
+16백만 Instruct per 1sec
+
+===========
+
+Most Single Clock Cycle Execution의 예외
+	2-cycle Multiplier
+	곱셈은 2사이클
+
+===========
+
+Nonvolatile vs Volatile 비휘발성 휘발성
+
+Nonvolatile -> 프로그램 설치
+
+폰노이만 아키텍쳐
+	data, program access가 주메모리에 다 있을수있음
+	한 메모리 안에서 영역을 나눔
+하버드 아키텍쳐
+	program memory / data memory가 따로 있음
+	메모리 용량이 많지 않음
+	속도가 빠를 필요없음
+	그래서 일반적으로 Flash Memory에 Program
+				Data Memory에 SRAM
+
+=====================================
+
+Flash는 128K
+(64*16bit)
+
+Endurance 10000번 읽기쓰기
+
+Optional Boot Code Section
+
+/////////////////////////////////
+
+Mask Rom : Factory Reset
+	공장에서만 데이터 작성가능
