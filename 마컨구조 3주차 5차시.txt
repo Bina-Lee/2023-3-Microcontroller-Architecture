@@ -1,0 +1,49 @@
+Atmega128
+
+64pin
+    VCC(VDD) GND
+        21,52,64/22,53,63
+        VCC,GND 전부 연결해야 전부다 작동함
+        핀들에 따라서 전원 공급하는 부분들이 다름
+    XTAL
+        23,24
+        Clock
+        Crystal
+            발진기
+            깡통처럼 생김
+            안제 크리스탈이랑 전해질을 넣어두는데
+            전기를 인가하면 일정하게 움직임
+            그걸로 파동을 만들어서 주기를 만듦
+            주파수를 만듦
+            그렇게 Clock을 만듦
+            위에 있는 숫자는 고유 주파수
+    Reset'(0일때 active/(Bubble)Reset 동일표현)
+        Stanby : High, Active : Low
+            Circuit : VCC-R-Pin-switch-GND
+        Stanby : Low, Active : High
+            Circuit : pin 앞에 Not Gate
+
+    Primary Function(Alternative Function)
+
+    PXn-Port(GPIO)
+
+    PA, PC, PD, PB, PE, PF : 0~7
+    PG : 0~1
+        Port A~G
+
+    AD : Address, Data Bus
+        외부 메모리 연결할때 사용함
+        Address Line : 0~15
+        0~2^16-1 : 64KByte(이상 엑세스 못함)
+        
+    RD WR : 34, 33
+
+    int0~7
+        외부 인터럽트
+        상시 대기
+        Sleep Mode - Wake UP
+    
+    10~14 : SPI 통신
+    2~4 : UART
+
+    ADC(onverter) 8개
