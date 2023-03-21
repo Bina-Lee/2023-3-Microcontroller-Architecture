@@ -1,0 +1,74 @@
+P03 Block Dagram
+    ALU
+       산술논리연산
+       V자 모양에서
+       위에 피연산자 입력
+       아래 연산결과 출력
+    BUS
+        두꺼운 화살표
+        Adress Bus
+        Data Bus
+        Control Bus
+    General Purpose Registers
+        CPU와 가장 가까운 레지스터
+    STATUS Register
+        최신 결과값 저장
+        확인을 해도되고 안해도되고
+        사용자가 확인을 할 뿐
+    XTAL
+        핀이 두개인건 연결되는 핀이 두개이기 떄문
+
+    CPU Cycle
+        Instruction Fetch
+            Fetch : go and bring 가서 가져옴
+            Instruction에서
+            명령어는 Flash에 있음
+
+            PC : Program Counter
+                IR(Instruction Register)에 저장
+        Instruciton Decoding
+            하나씩 가져오는 명령어를
+            어떤 명령어인지 해석
+
+            Decoding
+        execation
+            명령 실행
+
+            ALU에서
+
+        PC에는 이번에 수행할 명령어의 주소가 저장 되어있음
+        시작할때 PC값은 0
+        Fetch에서 PC값을 읽음
+        Fetch에 온 명령어를 IR에 저장
+        하나 가져오면 PC++;
+        IR에 저장되면 decoder exec
+
+        이 흐름들을 깨는 요소
+            함수, 인터럽트
+
+P09 Status Register
+    rowVector[8] : Register
+    왠만해서는 8비트이고
+    각각의 주소가 있음
+    SREG와 함께 각각의 이름이 붙어있음
+    Initial Value : Reset 직후의 값
+
+    Half Carry Flag : 각 비트에서 중간에 발생하는 Carry
+    Carry Flag : Carry가 발생했을떄 알려줌
+    Zero Flag : 결과값이 0이면 알려줌
+    Two's Comp~~Flag : 2의 보수 발생시 Flag
+
+    Global Interrupt Enable
+        Status가 아닌데
+        사실 넣을데가 없어서 SREG에 들어와있음 ㅋㅋ
+        전체 인터럽트를 enable할수있음
+        
+P11 General Purpose Register
+
+Stack : LIFO
+Queue : FIFO
+
+P12 Stack Pointer
+    함수의 포인터를 저장해놓고
+    함수가 호출되면 스택에 기존에 가야하는 포인터를 push
+    함수가 끝나면 RET : stack에서 pop해서 PC에 저장
