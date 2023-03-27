@@ -1,0 +1,60 @@
+    stack은 cpu가 관리해줌
+    stack pointer : ds의 top
+    최상단 value 시작주소
+    stack over flow : 쌓다가 global영역에 메모리가 침범함
+        AVR은 오버플로우를 처리를 못해줌
+        프로그램 오작동
+    stack포인터는 최상단에서 아래로 내려옴
+        4095->4063~~
+
+Instruction Timing p13
+    첫번째 사이클에 첫번째 fetch를 가져옴
+    두번째 사이클에서 excute 실행
+    세번째 사이클에서 두번째 fetch 가져옴
+    4번째 사이클에서 두번째 명령어 excute
+
+    pipeline : 하나씩 처리할 일을 병렬로 한번에 처리함
+    ->실행하면서 그다음 명령으를 가져옴
+    개당 사이클 2번 -> 1번
+    결론적으로 실행속도가 반으로 줄어듦
+
+-----------------------
+
+Flash Memory p16
+    Program Memory
+        One word : 16
+    64Kb
+        ->
+
+    Application Flash Section
+        0번지부터 커짐
+        우리가 짜는 프로그램은 여기에 있음
+        reset을 해야 여기있는 프로그램을 실행할 수 있음
+    Boot Flash Section
+        끝번지 쪽에 있음
+
+    Data Memory
+        Data Memory Space
+            0000~00FF/0000~005F : IO Register
+            0100~10FF : 4096 mapping
+            ~64KB : extention enable
+
+    EEPROM
+        바이트 단위 R/W
+        주소를 가르쳐주고 써야됨
+        데이터를 한번 쓰면 지워지지 않음
+
+    Register p19
+        Address Register : 2byte를 사용하지만 실제로는 12비트까지 유효함
+            R/W enable
+            Initial : 초기화 되지 않음
+                마지막 값 기억함
+            원하는 주소를 EEAR에 넣으면 됨
+
+C example
+    AVR에서는 int가 2byte임 주의
+    unsigned를 주로 사용함
+
+    Register |= value;
+    Register = Register | value;
+    Register $= value;
