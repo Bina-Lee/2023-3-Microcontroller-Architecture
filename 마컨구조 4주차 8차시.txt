@@ -1,0 +1,23 @@
+|= 대입연산자로 해당 비트는 무조건 1로 만듦
+    다른건 건들지 않음
+
+특정 비트만 1로 만들고 싶으면 해당 비트만 1과 or연산 나머지는 0으로
+특정 비트만 0으로 만들고 싶으면 해당 비트만 0과 and연산 나머지는 1로 -> mask라고 함
+
+p24 External Memory Interface
+    핀들 연결해줘야됨 p26
+        latch / flip-flop
+
+        latch : level trigger
+        flip-flop : edge trigger
+    
+    AVR : ALE : clock
+        Address Latch Enable
+        왜 cpu가 관여하는가에 대해서
+    AVR : AD7:0
+        address를 주고 그 주소에 data를 넣음
+        ALE가 high일때 Address를 주고
+        ALE가 low일 때 data를 줌
+
+    Timing p27
+        
