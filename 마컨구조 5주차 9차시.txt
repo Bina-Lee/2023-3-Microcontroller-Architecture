@@ -1,0 +1,80 @@
+AVR Clock
+    block diagram
+
+    Multiplexer
+        입력 여러개, 출력 한개
+        selector라고도 함
+        여러 입력 중에 하나만 선택함
+        
+    오실레이터
+
+    AVR Clock
+        나가는데서 prescaler가 prescale해서 클럭을 늦출
+
+
+Power Management p42
+
+    sleep mode : clock의 소비전력이 제일 많음
+        그냥 clock을 끊어서 클럭을 없애버림
+
+        IDLE
+            쓸 일 없음
+            슬립이 아님
+            그냥 공상모드...?
+            소비전력 그렇게 감소하지 않음
+        Power-Down mode
+            powerful deep sleep
+
+        Power Save mode
+            timer와 연결됨
+            rtc라는 외부 타이머랑 연결됨
+                rtc : 소비전력을 적게 먹는 클럭
+            정해진 시간에 일어날수있음
+        
+        MCUCR : SE bit : 1을 쓰면 바로 sleep mode
+            SM2, SM1 : 어떤 sleep mode를 사용할건지 정함
+                sleep mode로 가진 않음
+
+            wake up source : 다양한게 있음 ㅋㅋ
+                p44에 있음
+                X표시가 체크표시임 X된 거는 해당 방식으로 가능하다는 얘기임
+
+                    Power down에서 TWI Address Match는 잘 안씀
+                        INT7:0이 거의 유일하다고 보면 됨
+                    Power save : 클럭 하나, Timer Osc만 살아있음
+                        Timer Osc : 일정시간마다 깼다가 죽음
+
+                            Duty Cycle : 깨어있는 시간/전체 사이클
+
+                            전압은 일정, 전류의 양으로 소비전력이 달라짐
+                                p322
+
+                            배터리 수명계산은 어떻게 하는가에 대해서
+                                KCL(전류법칙) : 임의의 노드에서 들어오는 전류의 합은 
+                                                나가는 전류의 합과 같다
+                                            도선의 위치와 상관없이 전류는 항상 일정함
+                                            전압은 달라짐
+
+
+System Control and Reset p47
+
+    Reset Source 5개
+        Power On reset
+            전원이 들어오면 자체적으로 리셋을 한번 함
+        External Reset
+            직접 리셋했을 때
+        Watchdog Reset
+            프로그램 감시하다가 watchdog timer가 끝나면 리셋시킴
+            watch dog timer out
+        Brown-out Reset
+            배터리 전압값을 측정하는데 흔들리는 그 부분에 따라서 시스템이 불안해질 수 있음
+            그 부분을 감지하는 장치 : Brown-out Detection : CPU안에 있음
+            해당 전압값 아래로 떨어지면 스스로 리셋을 한번 함
+                시스템 보호차원이라고 보면 될 거같음
+        JTAG AVR Reset : debugger에서 리셋을 강제로 함
+            우리가 직접 쓸 일은 많이 않음
+
+    MCUCSR : MCU Control and Status Register
+        위의 리셋 케이스들에 대해 
+        이전리셋~다음 리셋 사이 한번 읽으면
+        마지막으로 리셋된 소스만 1로 바껴있음
