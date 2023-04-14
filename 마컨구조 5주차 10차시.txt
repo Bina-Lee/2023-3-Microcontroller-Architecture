@@ -1,0 +1,40 @@
+Watchdog Timer
+    prescaler : timer를 최대한 늦춤
+    4번3번 bit 중요 ; WDCE, WDE
+
+    watchdog을 shutdown하는 방법 ; p55
+
+AVR Interrupts
+    Interrupt Components
+        Interrupt Vectors(table)
+        Interrupt Service Routine(ISR)
+        Interrupt Configuration
+
+    Interrupt <-> Polling
+    Polling : 하나하나 전부다 체크함
+        놓칠 수 있는 비트들이 많아짐
+        무한loop으로 체크해야됨
+        소스소모 많음..
+    
+    CPU가 인터럽트 발생시 인터럽트 루틴 실행
+    사용자가 루틴을 실행시킬 수 없음
+    무조건 인터럽트 발생시에만
+
+    p56
+    0번지 reset인데 사실
+        jump main이 있음
+        main으로 이동하는거
+        call과 달리 stack에 쌓지 않고 바로 해당 주소로 이동
+
+    interrupt는 return이 아니라 RETI
+
+    1전지부터는 JUMP EXT_INTO(interrupt)
+
+    함수 호출시 다음 주소 push하기 때문에
+    inturrupt는 다음주소를 push하지 않고
+    jump함, 끝나면 다시 원래대로 pop해서 씀
+
+    Program Counter에 다음 실행 주소를 저장함
+
+IO Ports p62
+

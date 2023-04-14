@@ -1,0 +1,63 @@
+AVR Ports
+    PORTx : one each for the Data Register : write
+    DDRx : Data Direction Register : input인지 output인지
+    PINx : 
+
+    ex
+    DDRC -> Write를 하고싶다면
+        0번핀에 vcc랑 led 연결함
+    0은 input / 1은 outputdmf dmlalgka
+    DDRC=0x01; : 0번핀만 1
+    PORT=0x00; : 전부 0으로 입력함
+    PORT=0x01; : 1로 전환함
+    다른 값도 건드린다는 문제점이 있음
+    port |=  0x01;
+    port &= ~0x01;
+    
+    while(1){
+        PORTC &= ~(0x01);
+        delay_ms(500);
+        PORTC |= 0x01;
+        delay_ms(500);
+    }
+
+    쓸때는
+    스위치 달린 회로임
+
+    unsigned chat in;
+
+    DDRC &= ~(0x01);
+    while(1){
+        in=PLNC & 0x01;
+        if(!in){
+            ;
+        }
+    }
+
+External Interrupts
+
+    CPU Interrupt는 전용핀이 INT7:0이 있음
+
+    Interrupt Service Routine
+
+    p.86
+    그러면 INT7:0은 실제로는 16비트인건가
+    table 48
+        Interrupt Sense Control
+            Level Trigger
+            Edge Trigger
+                Flling
+                Rising
+    Level Interrupt는 대부분 사용하지 않음
+    보통 Edge Trigger만 사용함
+
+    4567에 대해서 0,1 any logical change에 대해 뭔가를 지원함
+
+    0,1만 쓰겠다면
+    EIMSK |= 0x03;
+
+    EIFR
+    Interrupt Flag Register
+        interrupt service가 끝나면 보통 알아서 flag가 내려감
+    
+    시험범위는 interrupt까지

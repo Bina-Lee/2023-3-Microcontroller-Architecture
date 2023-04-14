@@ -14,7 +14,7 @@ register : cache보다 cpu에 가까움
 모든 CPU는 SFR을 가짐
 
 Constrol 레지스터
-	하드웨어 루틴 데어
+	하드웨어 루틴 제어
 	적절한 값이 이미 정의되어있음, 이에따라 CPU 행동
 Status 레지스터
 	해당 하드웨어, 루틴의 상태를 나타내는 레지스터
@@ -25,8 +25,8 @@ Data 레지스터
 
 
 CPU가 지원하는 SFR의 일반적인 종류
-MCU	Constorl, Status
-GPIO	Control, Data
+MCU	 Contorl, Status
+GPIO Control, Data
 interrupt	Constrol, Status
 Timer	Control, Status, Data
 Communication	Constrol, Status, Data	Register
