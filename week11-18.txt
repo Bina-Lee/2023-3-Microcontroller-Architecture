@@ -1,0 +1,24 @@
+USART Control and Status Reg
+A
+    RXC : 잘 받으면 1, 들어온 값을 읽으면 clear됨
+    TXC : 잘 보내면 flag 1
+    UDRE : 데이터 보내고 UDR이 비어있으면 1 / TXC랑 둘중에 하나만 쓰면 됨
+        이 세개는 Status
+    0번비트 그냥 쓸일 없음 ㅋㅋ
+B
+    7:5 : A와 달리 flag가 아니라 Interrupt로 사용할수있음
+    4:3 : 세팅 안하면 송수신 로직 자체가 실행이 안됨
+    1:0 : 9bit 송수신할때 최상단 비트를 여기다가 처리함
+C
+    6UMSEL : 0으로 쓰면 됨
+    5:4 : parity 설정
+    UCSZ : character size 설정(B 2번 비트 같이 세팅)
+    USBS : stop bit setting
+    0 : 별 의미없음 그냥 default라서
+
+uart init : p176
+~8bit tx : p177
+ 9bit rx : p178
+
+~8bit tx : p180
+ 9bit rx : p181

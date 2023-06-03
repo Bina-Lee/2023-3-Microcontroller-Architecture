@@ -1,0 +1,78 @@
+figure 88 p198
+
+SDA 먼저 내리고 조금있다가
+    (곧 시작한다는 뜻)
+SCL low로 내림
+    (SCL이 다시 올라가면 데이터 받을예정)
+SCL이 high인 동안 데이터를 가져옴
+
+끝나면 SCL high
+후에 SDA high   ->standby
+
+한번에 1byte씩 보낼 수 있음
+
+SDA high, SCL high
+    ->SDA low, SCL low
+    ->repeated start
+
+Address Packet format p199
+
+address , data
+address는 9bit
+    7+2bit
+    2bit-1 : read/write
+            write : 0
+            read  : 1
+    2bit-2 : ACK
+            acknologe
+            전송할때 잘 받고있는지 파악하기 위한 정보
+            target address/device가 보내줘야됨
+            default가 high이기 때문에 그냥 low를 보내주면 됨
+            쓸데없이 많이 점유하면 안되기 때문에 잘 받고있는지 체크
+
+    general call / broadcast call
+        000 0000을 주소로 함
+        전체 slave에 데이터를 보냄
+            ack는 아무 slave나 함
+
+data packet도 9bit
+    데이터 8bit + ack 1bit
+
+    nack : not ack
+
+    ack는 무조건 target device가 줌
+
+
+Multi master bus
+    먼저 detec되는 master가 포기해야함
+
+    SDA는 보낸값이 달리짐 figure93
+
+
+TWI Moduloe p203 figure94
+
+    Address Match Unit
+        TWAR에는 본인 address
+            eeprom에 address 따로 저장해놓음
+            register reset시 해당 address 불러옴
+    Bit Rate Generator
+        Master일때 만들어서 알아서 보내줌
+
+    TWAR에 주소 쓰고 TWDR에도 씀
+
+    Control Unit p204
+    
+        return status code -> evemt generate
+
+    TWCR로 실행시킴
+
+    TWSR : status reg
+
+    TWDR : TWD1:0 : SLA + data
+
+    TWAR : address
+        general call : 보통 안씀
+
+    figure95
+
+    c code : p211

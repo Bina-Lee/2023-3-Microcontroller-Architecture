@@ -1,0 +1,27 @@
+p124 figure 53
+    OC interrupt 발생부분을 OC가 아니라 ICF를 사용해도됨
+Phase and Frequency Correct PWM Mode p125
+
+16bit timer
+    TCCRA
+        WGM11:0
+        COM1C1:0
+
+        WGM13:2
+        CS12:0
+    TCCRC는 사실 안씀
+
+    TCCRA, TCCRB로 모드설정
+    
+    TIMMSK
+        OCIE1A, OCIE1B, TOIE1, TICIE1
+
+동기식 직렬
+    with clock
+
+simplex / half duplex / full duplex
+
+Multiplex : n by n communication
+
+SPI Serial Peripheral Interface p162
+

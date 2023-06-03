@@ -1,0 +1,53 @@
+normal mode
+    overflow만 사용함
+
+PWM mode
+    어떤 pulse를 발생할 수 있을까
+
+Fast PWM mode
+    Output compare match interrupt가 발생했을때
+    (OCR interrupt)
+    0으로 떨구고
+    top에서 다시 올림
+
+    overflow와 match interrupt를 둘 다 사용함
+
+    주기는 못바꾸는데 width는 바꿀 수 있음
+
+    figure39
+        COMn1:0을 2,3으로 주는거에 따라
+        OCn이나 OCn'으로 사용가능
+
+    CTC mode보다 빠름
+
+
+Pase Correct PWM Mode p97
+    dual slope operation
+    올라갔다가 내려오면서 최솟값에서 overflow가 발생함
+
+    1period : top->top까지
+
+TCCR p100
+    FOC0 잘 안씀
+    CS02 CS01 CS00
+        실질적으로 타이머 쓸때 세팅해야될거
+        prescaler
+    WGM00 WGM01
+        이 비트로 타이머 모드 세팅
+    COM table53
+        00, 01만 의미가 있음
+        보통 01 toggle mode를 사용함
+    COM table54
+        10, 11 사용함
+    COM table55
+        10, 11
+        clear -> 0, set -> 1
+
+
+timer는 prescaler값에 어떤 값을 넣으면 바로 실행 시작함
+전원 끄면 꺼짐, CS를 000을 주면 꺼짐
+
+TIMSK p105
+    OCIE0 TOIE0
+
+Asyncronose 스킵

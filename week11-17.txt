@@ -1,0 +1,35 @@
+UART
+    BAUD Rate : 통신속도 p173
+        Synchronous Master Mode는 사용하지 않음
+        9600...etc bps(bit per second를 사용함)
+        p193~ table참고해서 값 알아서 넣으면 됨 UBRR사용해서
+    Frame Formats p175
+        1 Start bit
+            그냥 low로 내리는게 다임
+            한비트가 유효한 시간만큼만
+            default라서 따로 맞추진 않음
+        5~9 data bit
+        1 parity bit
+            error detection
+            최대 7byte : ASCII code : 7bit -> 8bit
+                no : 해당 비트 아예 사라짐
+                even
+                    짝수 패리티
+                    전체 비트에서 1의 갯수가 짝수가 되게
+                    홀수개면 1이 돼서 짝수로 맞춤
+                odd
+                    홀수 패리티
+                    전체 비트에서 1의 갯수가 홀수가 되게
+                    짝수개면 1이 돼서 홀수로 맞춤
+        1~2 stop Bit
+
+            --> 1 Frame
+            1 frame : UDR 레지스터에 들어갔다가 나옴
+
+USART Register p188
+    UDRn : tx, Rx
+    UCSRnA,B,C
+    UBRRnL,H : Baud Rate Reg
+
+    UCSRnA : USART Control and Status Reg
+        

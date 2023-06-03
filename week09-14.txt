@@ -1,0 +1,26 @@
+16bit timer/counter p108
+    1,3번
+
+    OCR reg가 3개!!와!!
+    double buffer output compare reg
+    ICU : Input Capture Unit
+        16비트에만 있는 기능
+        각 순간의 TCNT값을 캡쳐할수있음
+    Compare Match(Auto Reload)
+    Variable PWM Period
+    Interrupt Source 각 5개씩
+
+    bus는 무조건 8비트
+
+    근데 16비트이기 떄문에 두번에 걸쳐서 데이터 전송
+        둘중에 하위레지스터가 먼저 감
+        상위 레지스터는 temp에 뒀다가 올림
+        다음 클럭에서 하위 레지스터값이 바뀌기 때문
+
+    8bit의 PWM mode 4개에
+    Phase and Frequency Correct PWM Mode 추가
+
+    Fast PWM
+        CTC처럼 max값을 바꿀 수 있음
+            레지스터 설정하기 나름
+        

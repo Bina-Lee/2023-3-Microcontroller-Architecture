@@ -1,0 +1,78 @@
+SPI p162
+synchronous
+ATmega128, peripheral devices, AVR devices
+Full-duplex
+    Three-wire Synchronous Data Transfer
+    TX, RX, clock
+Master or Slave Operation
+LSB First or MSB First Data Transfer
+BitRates 7개
+Interrupt Flag : End of Transmission
+Write Collision Flag Protection
+    1:n communication
+        not 1 writer...;;
+        another device same channel writing
+    flag Protection
+Double Speed Mode
+    잘 안씀
+
+Figure 75
+MISO Master Input Slave Output Rx
+MOSI Master Output Slave Input Tx
+Shift Register가 Read Data Buffer로 한비트씩 보내거나 받음
+SS
+    Chip Select
+    별로 안씀
+Divider : 속도제어
+
+SPCR : Control
+SPSR : Status
+SPDR : Data Register
+
+별도의 Interrupt 있긴한데 안씀 ㅅㄱ ㅋㅋ
+SPIE SPI Interrupt Enable 사용하려면 SPCR의 SPE Bit6 Enable 해야됨
+MSTR Select로 1 : Master, 0 : Slave 세팅가능
+LSB MSB Select : DORD : MSB : 0, LSB : 1
+CPOL : Clock Polarity
+CPHA : Clock Phase
+    P169 Table73, Figure 77,78
+SPI2X SPR1:0
+
+C Example P164
+    SPI_MasterTransmit(unsigned char cData) <-unsigned로 꼭 사용할것
+
+
+
+USART p170 (UART)
+명칭은 그냥 무시해도됨 그냥 UART라고 보면 됨
+baud rates
+Full Duplex Operation
+Asynchronous(Synchronous는 안쓸거임 ㅋㅋ)
+Master or Slave Clocked Synchronous도 Synchronous일떄 사용하기 때문에 안씀 ㅋㅋ
+High Resolution Baud Rate : 통신속도
+Serial Frames with 5~9 Data Bit + 1~2 stop bit
+    보통 8bit 사용함
+Parity
+Data OverRun / Frameing Error Detecrion
+Start Bit Detection
+별도의 interrupt없이 flag 만으로 작동함
+    통신 interrupt를 사용하긴함
+    Rx Interrupt...
+막줄 두개는 쓸모없음...
+
+TX-RX 서로 연결하고 GND 연결해야됨
+GND는 서로의 0이라는 Reference가 다를수 있기 떄문에 연결함
+
+RTS : Ready to Send : 보낼거임
+CTS : Clear to Send : 받을준비 됐음
+DTR : 
+이런거 있긴한데 암튼 엄 흐름제어 Flow Control...
+
+shift Register
+
+UDR Transmit : UART Data Reg
+    여기다가 데이터 쓰면 알아서 보내줌
+UDR Receive
+    한비트씩 받아서 1 Baud되면 UDR에 씀
+
+UBRR로 통신속도 세팅

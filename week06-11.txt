@@ -6,7 +6,7 @@ AVR Ports
     ex
     DDRC -> Write를 하고싶다면
         0번핀에 vcc랑 led 연결함
-    0은 input / 1은 outputdmf dmlalgka
+    0은 input / 1은 output을 의미함
     DDRC=0x01; : 0번핀만 1
     PORT=0x00; : 전부 0으로 입력함
     PORT=0x01; : 1로 전환함
@@ -24,7 +24,7 @@ AVR Ports
     쓸때는
     스위치 달린 회로임
 
-    unsigned chat in;
+    unsigned char in;
 
     DDRC &= ~(0x01);
     while(1){
@@ -46,7 +46,7 @@ External Interrupts
         Interrupt Sense Control
             Level Trigger
             Edge Trigger
-                Flling
+                Falling
                 Rising
     Level Interrupt는 대부분 사용하지 않음
     보통 Edge Trigger만 사용함

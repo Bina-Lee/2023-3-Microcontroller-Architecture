@@ -1,0 +1,50 @@
+Analog Comparator p227
+
+    비교기
+
+    analog value를
+
+
+    sensor
+        register type / capacitor type
+
+    V_1, V_1 : 하나는 값, 하나는 레퍼런스
+    V_1 - V_2 >=0 : high / else : low
+    항상 레퍼런스가 필요함 / 기준값
+        레퍼런스를 만드는 과정 등이 ㅂㅅ같음
+
+    ADC가 있는데 왜씀
+    ㅋㅋ
+
+Analog to Digital Converter p230
+    ADC
+
+    10bit resolution
+        0~1023
+        0~5v 사이를을 2^n bit로 쪼갬
+    65~260us Conversion Time
+        이정도면 긴거라고 한다...
+        hold 하는 동안의 값들은 감지할 수 없음
+        정밀한 측정이 불가능 함
+    15kS/S : Maximum Rsolution
+    8 multiplexed single ended input channels
+        8개 센서 연결 가능
+    7 differential inpout channel
+        요즘에는 잘 안씀
+        원래는 통신에서 많이 썼는데
+        gnd가 없고 v+, v-가 있음
+            USB라던가...
+            +,-가 같이 움직임
+    2 differential input channel + gain 10x, 200x
+        증폭기 달린 애
+    optional left adjustment for ADC Result Readout
+        상위 reg의 2비트를 왼쪽에 둘건지 오른쪽에 둘건지
+    0~vcc voltage range
+        over하면 그냥 최댓값으로 표현
+    2.56v reference를 제공하기도 함 (not 5v)
+        5v를 다 쓰지 않고 2.56으로 낮춰서 정밀도
+    Free Running / Single Conversion Mode
+        항상 / 원할때만 작동
+    interrupt는 거의 안씀
+    sleep mode noise canceler
+        sleep mode에서 깰때 발생하는 노이즈 억제

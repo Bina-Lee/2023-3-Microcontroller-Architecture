@@ -1,0 +1,57 @@
+TWI p197
+I2C
+Two wire interface
+
+    two bus lines
+        bus 방식임
+    master and slave operation
+    tx or rx
+    id가 필요함 identifing
+        동일한 개념 : 동일하게 address
+        uniqe함
+
+    7bit address space 0~127
+        different slave address
+        address가 매칭되는 디바이스만 데이터를 받을수있음
+            안되는 애가 받게되면 드랍
+
+    Multi master Arbitration support
+        rx에서 받는 과정에서 문제가 생김
+        -> 동시 데이터 송신 시 순서 중제 기능
+
+    noid suppression circuit
+    general call
+        slave 지정안하고 한번에 전채에 전송
+
+선 2개 serial 통신
+128 different devices
+2w : SCL clock, SDA data
+
+pull up reg : 저항
+
+individual address : unique
+
+open drain
+    별도 pull up 하지말것
+    그냥 open된 상태에서 하고
+    마지막 한개에서만 pull up을 할 것
+
+저항 2개
+    stanby high
+    wired and function
+tri state
+    high emphidance
+    제3상태
+    하나라도 low를 주지않으면 항상 high
+
+SCL이 high인 경우 1 clock
+clock이 이때까지 보던거랑 다름
+high인 경우의 data가 valid함
+
+start stop condition
+    master : initiates and terminates
+    master ->start condition -> terminated when stop condition
+
+    보낸 중에 channel이 busy하다고 표현함
+        이 경우 다른애들끼리 통신을 못함
+        ->대충 이게 단점이라고 함
