@@ -8,7 +8,7 @@ Analog Comparator p227
     sensor
         register type / capacitor type
 
-    V_1, V_1 : 하나는 값, 하나는 레퍼런스
+    V_1, V_2 : 하나는 값, 하나는 레퍼런스
     V_1 - V_2 >=0 : high / else : low
     항상 레퍼런스가 필요함 / 기준값
         레퍼런스를 만드는 과정 등이 ㅂㅅ같음

@@ -1,0 +1,62 @@
+Analog to Digital Converter
+
+p231
+
+figure 108
+
+왼쪽 핀
+
+레퍼런스는 작동전압 내에서
+
+input mux
+    8개가 한번에 conversion이 되지는 않고 한번에는 하나씩만
+
+
+Operation p232
+    Successive approximation
+
+    ADC Reg : ADCH, ADCL에 저장함
+
+    interrupt는 보통 안씀
+
+    Start Conversion bit : High
+        operation 시작
+
+        Free Running Mode
+            계속
+        Single Conversion Mode
+            한번씩만
+
+    normal conversion : 13ADC clock cycles
+    analog circuitry : 25ADC clock 필요
+    sample hold 하는데 1.5ADC clock cycle 필요
+    normal mode에서는 13.5ADC clock
+
+    figure110
+    ADEN High
+    ADSC : signal
+    해당 cycle 시간 이후에 데이터를 가져가면 유효한 신호를 받을 수 있음
+
+    figure 111
+    13clock 이후에 유효한 데이터 가능
+
+    figure112 freerunning conversion
+        최초 25클럭 13클럭마다 갱신
+
+
+ADC Conversion Result p241
+    ADC=V_in*1024/V_ref
+
+ADMUX p243
+    MUX4:0 : 어떤 mux를 쓸건지
+    REFS1:0 : referance voltage
+    ADLAR : p246
+
+ADCSRA
+    ADEN : ADC Enable 무조건 켜야됨
+    ADSC : 키면 시작함
+
+    ADPS : 상관없음
+    ADFR : 모드설정 0: single, 1: free Running
+
+시험 ~245까지
