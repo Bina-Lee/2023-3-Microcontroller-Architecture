@@ -18,7 +18,7 @@ C
 
 uart init : p176
 ~8bit tx : p177
- 9bit rx : p178
+ 9bit tx : p178
 
-~8bit tx : p180
+~8bit rx : p180
  9bit rx : p181
